@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN echo 'vespa:barista#007' | chpasswd
+RUN echo 'vespa:barista007' | chpasswd
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
 
 RUN apt install  -y curl wget unzip xvfb default-jre
