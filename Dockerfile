@@ -18,7 +18,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo 'root:barista#007' | chpasswd
-ENV NVM_DIR /usr/local/nvm
+ENV NVM_DIR /root/.nvm
 
 #ENV NVM_DIR /root/.nvm
 #RUN mkdir $NVM_DIR
