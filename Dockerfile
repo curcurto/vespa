@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo 'root:root' | chpasswd
-SHELL ["/bin/bash", "--login", "-c"]
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
     
 ENV NVM_DIR "$HOME/.nvm"
