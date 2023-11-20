@@ -13,9 +13,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo 'root:root' | chpasswd 
+
     
 ENV NVM_DIR "$HOME/.nvm"
-RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
+RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | /usr/bin/bash && \
 source $NVM_DIR/nvm.sh && \
 source $NVM_DIR/bash_completion && \
 nvm install node && \
@@ -25,4 +26,5 @@ npm fund
 
 EXPOSE 4200
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
+
 
