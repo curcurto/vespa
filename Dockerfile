@@ -21,12 +21,20 @@ RUN echo 'root:barista#007' | chpasswd
 
 #ENV NVM_DIR /root/.nvm
 #RUN mkdir $NVM_DIR
-RUN . $NVM_DIR/nvm.sh && \
-    . $NVM_DIR/bash_completion
-RUN nvm install node && \
-    npm install selenium-webdriver && \
-    npm install discord.js && \
-    npm fund 
+
+RUN source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default \
+    && nvm install 8.1.3 \
+    && nvm use 8.1.3
+    
+#RUN . $NVM_DIR/nvm.sh && \
+#    . $NVM_DIR/bash_completion
+#RUN nvm install node && \
+#    npm install selenium-webdriver && \
+#    npm install discord.js && \
+#    npm fund 
 #RUN source $NVM_DIR/nvm.sh && \
 #    source $NVM_DIR/bash_completion && \
     
