@@ -8,7 +8,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo 'root:root' | chpasswd
-CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
 
 RUN apt-get install -y curl wget unzip xvfb default-jre
     
@@ -21,7 +20,6 @@ npm install selenium-webdriver && \
 npm install discord.js && \
 npm fund
 
-
-
 EXPOSE 4200
+CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
 
