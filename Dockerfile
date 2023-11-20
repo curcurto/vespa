@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y wget && \
     apt-get install -y unzip && \
     apt-get install -y xvfb && \
-    apt-get install -y default-jre
+    apt-get install -y default-jre && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
