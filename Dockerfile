@@ -28,9 +28,9 @@ RUN . $NVM_DIR/nvm.sh \
     && nvm use default \
     && nvm install 8.1.3 \
     && nvm use 8.1.3 \
-    && npm install selenium-webdriver \ 
-    && npm install discord.js \
-    && npm fund
+    #&& npm install selenium-webdriver \ 
+    #&& npm install discord.js \
+    #&&& npm fund
 #    npm install discord.js && \
 #    npm fund 
     
