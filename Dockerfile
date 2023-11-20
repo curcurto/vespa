@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 RUN echo 'root:barista#007' | chpasswd
 
-ENV NVM_DIR $HOME/.nvm
+ENV NVM_DIR /root/.nvm
 #RUN mkdir $NVM_DIR
 RUN . "$NVM_DIR/nvm.sh" && \
     . "$NVM_DIR/bash_completion"
