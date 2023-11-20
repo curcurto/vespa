@@ -19,9 +19,9 @@ RUN apt-get update && \
 
 RUN echo 'root:barista#007' | chpasswd
 
-ENV NVM_DIR "$HOME/.nvm"
+ENV NVM_DIR $HOME/.nvm
 RUN source $NVM_DIR/nvm.sh && \
-    source $NVM_DIR/bash_completion && \
+    #source $NVM_DIR/bash_completion && \
     nvm install node && \
     npm install selenium-webdriver && \
     npm install discord.js && \
