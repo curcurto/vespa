@@ -7,7 +7,9 @@ RUN apt-get update && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN echo 'vespa:barista007' | chpasswd
+RUN echo 'root:root' | chpasswd
+CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
+
 RUN apt install  -y curl wget unzip xvfb default-jre
     
 ENV NVM_DIR "$HOME/.nvm"
@@ -19,7 +21,7 @@ npm install selenium-webdriver && \
 npm install discord.js && \
 npm fund
 
-CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
+
 
 EXPOSE 4200
 
