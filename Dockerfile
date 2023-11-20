@@ -23,7 +23,7 @@ ENV NVM_DIR /root/.nvm
 #ENV NVM_DIR /root/.nvm
 #RUN mkdir $NVM_DIR
 
-RUN source $NVM_DIR/nvm.sh \
+RUN . $NVM_DIR/nvm.sh \
     && nvm install node \
     && nvm use default \
     && nvm install 8.1.3 \
