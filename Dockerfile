@@ -10,7 +10,7 @@ RUN apt-get update && \
 RUN echo 'root:root' | chpasswd
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
 
-RUN apt install  -y curl wget unzip xvfb default-jre
+RUN apt-get install -y curl wget unzip xvfb default-jre
     
 ENV NVM_DIR "$HOME/.nvm"
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
