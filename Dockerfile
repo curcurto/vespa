@@ -21,9 +21,9 @@ RUN echo 'root:barista#007' | chpasswd
 
 ENV NVM_DIR $HOME/.nvm
 #RUN mkdir $NVM_DIR
-RUN source $NVM_DIR/nvm.sh && \
+RUN $NVM_DIR/nvm.sh && \
     \. "$NVM_DIR/nvm.sh" && \
-    source $NVM_DIR/bash_completion && \
+    $NVM_DIR/bash_completion && \
     \. "$NVM_DIR/bash_completion"
 RUN nvm install node && \
     npm install selenium-webdriver && \
