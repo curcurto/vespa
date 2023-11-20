@@ -9,7 +9,11 @@ RUN apt-get update && \
 
 RUN echo 'root:root' | chpasswd
 
-RUN apt-get install -y curl wget unzip xvfb default-jre
+RUN apt-get install -y curl && \
+    apt-get install -y wget && \
+    apt-get install -y unzip && \
+    apt-get install -y xvfb && \
+    apt-get install -y default-jre
     
 ENV NVM_DIR "$HOME/.nvm"
 RUN wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
