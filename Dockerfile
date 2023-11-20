@@ -9,10 +9,10 @@ RUN apt-get update && \
     apt-get install -y xvfb && \
     apt-get install -y default-jre && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
-    nvm install node && \
-    npm install selenium-webdriver && \
-    npm install discord.js && \
-    npm fund && \
+    #nvm install node && \
+    #npm install selenium-webdriver && \
+    #npm install discord.js && \
+    #npm fund && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
