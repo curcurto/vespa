@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN echo 'root:root' | chpasswd
+RUN echo 'vespa:barista#007' | chpasswd
 
     
 #ENV NVM_DIR "$HOME/.nvm"
