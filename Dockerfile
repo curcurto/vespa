@@ -18,13 +18,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo 'root:barista#007' | chpasswd
+ENV NVM_DIR /usr/local/nvm
 
 #ENV NVM_DIR /root/.nvm
 #RUN mkdir $NVM_DIR
 
 RUN source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
+    && nvm install node \
     && nvm use default \
     && nvm install 8.1.3 \
     && nvm use 8.1.3
