@@ -14,7 +14,7 @@ RUN apt-get update && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
-    wget -O comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
+    wget -O /root/comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
     #echo "thecl0udsares0funny" | gpg -o /root/comp.tar.gz --passphrase-fd 0 -d /root/comp.tar.gz.gpg && \
     #tar -xvzf /root/comp.tar.gz && \
     apt-get clean && \
