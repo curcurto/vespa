@@ -31,8 +31,9 @@ RUN . $NVM_DIR/nvm.sh \
     && nvm use 8.1.3 \
     && npm install selenium-webdriver \ 
     && npm install discord.js
+    
 RUN systemctl enable cron \ 
-    && crontab -l | {cat; echo "*/3 * * * * cd && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
+    && crontab -l | {cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
 
 EXPOSE 4200
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
