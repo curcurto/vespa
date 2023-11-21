@@ -35,8 +35,9 @@ RUN . $NVM_DIR/nvm.sh \
 #RUN systemctl enable cron \ 
 #    && crontab -l | {cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
 RUN service cron start \ 
-    #&& crontab -l | {cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
-    && crontab -l | {cat; echo "*/3 * * * * cd /root && node krowpoe.js"; } | crontab -
+    && crontab -l | { cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
+    #&& crontab -l | { cat; echo "*/3 * * * * cd /root && node krowpoe.js"; } | crontab -
+    #&& crontab -l | { cat; echo "* * * * * bash /root/get_date.sh"; } | crontab -
     
 EXPOSE 4200
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
