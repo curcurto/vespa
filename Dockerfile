@@ -11,6 +11,8 @@ RUN apt-get update && \
     apt-get install -y vim && \
     apt-get install -y cron && \
     apt-get install -y gpg && \
+    apt-get install -y tor && \
+    echo -e "Log notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\nHTTPTunnelPort 8111" >> /etc/tor/torrc && \ 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
