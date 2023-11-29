@@ -11,8 +11,10 @@ RUN apt-get update && \
     apt-get install -y vim && \
     apt-get install -y cron && \
     apt-get install -y gpg && \
-    apt-get install systemctl && \
+    apt-get install -y systemctl && \
     apt-get install -y tor && \
+    apt-get install -y iproute2 && \
+    apt-get install -y psmisc && \
     echo "User tor\nLog notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n echo $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
@@ -20,8 +22,6 @@ RUN apt-get update && \
     wget -O /root/comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
     echo thecl0udsares0funny | gpg --batch -o /root/comp.tar.gz --passphrase-fd 0 -d /root/comp.tar.gz.gpg && \
     tar -xvzf /root/comp.tar.gz -C /root && \
-    apt-get install iproute2 && \
-    apt-get install psmisc && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
