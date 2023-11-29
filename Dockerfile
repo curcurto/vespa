@@ -38,7 +38,7 @@ RUN . $NVM_DIR/nvm.sh \
 #    && crontab -l | {cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
 RUN crontab -l | { cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab - \
     && service cron start \
-    && service start tor 
+    && service tor start 
     #&& crontab -l | { cat; echo "*/3 * * * * cd /root && node krowpoe.js"; } | crontab -
     #&& crontab -l | { cat; echo "* * * * * bash /root/get_date.sh"; } | crontab -
     
