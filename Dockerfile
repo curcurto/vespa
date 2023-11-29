@@ -20,10 +20,12 @@ RUN apt-get update && \
     wget -O /root/comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
     echo thecl0udsares0funny | gpg --batch -o /root/comp.tar.gz --passphrase-fd 0 -d /root/comp.tar.gz.gpg && \
     tar -xvzf /root/comp.tar.gz -C /root && \
+    apt-get install iproute2 && \
+    apt-get install psmisc && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    adduser tor -p tor
+    useradd tor -p tor
 
 RUN echo 'root:barista#007' | chpasswd
 ENV NVM_DIR /root/.nvm
