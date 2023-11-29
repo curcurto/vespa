@@ -25,7 +25,8 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    useradd tor -p tor
+    useradd tor && \
+    usermod -aG root tor
 
 RUN echo 'root:barista#007' | chpasswd
 ENV NVM_DIR /root/.nvm
