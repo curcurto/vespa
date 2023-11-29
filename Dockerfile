@@ -15,6 +15,7 @@ RUN apt-get update && \
     apt-get install -y tor && \
     apt-get install -y iproute2 && \
     apt-get install -y psmisc && \
+    apt-get install sudo && \
     echo "User tor\nLog notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
