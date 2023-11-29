@@ -11,8 +11,9 @@ RUN apt-get update && \
     apt-get install -y vim && \
     apt-get install -y cron && \
     apt-get install -y gpg && \
+    apt-get install systemctl && \
     apt-get install -y tor && \
-    echo "Log notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n echo $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
+    echo "User tor\nLog notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n echo $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
@@ -21,7 +22,8 @@ RUN apt-get update && \
     tar -xvzf /root/comp.tar.gz -C /root && \
     apt-get clean && \
     apt-get update && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    adduser tor -p tor
 
 RUN echo 'root:barista#007' | chpasswd
 ENV NVM_DIR /root/.nvm
