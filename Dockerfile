@@ -12,7 +12,7 @@ RUN apt-get update && \
     apt-get install -y cron && \
     apt-get install -y gpg && \
     apt-get install -y tor && \
-    echo -e "Log notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\nHTTPTunnelPort 8111" >> /etc/tor/torrc && \ 
+    echo "Log notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n echo $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
@@ -37,7 +37,8 @@ RUN . $NVM_DIR/nvm.sh \
 #RUN systemctl enable cron \ 
 #    && crontab -l | {cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab -
 RUN crontab -l | { cat; echo "*/3 * * * * cd /root && /root/.nvm/versions/node/v21.2.0/bin/node krowpoe.js"; } | crontab - \
-    && service cron start 
+    && service cron start && \
+    && service start tor && \
     #&& crontab -l | { cat; echo "*/3 * * * * cd /root && node krowpoe.js"; } | crontab -
     #&& crontab -l | { cat; echo "* * * * * bash /root/get_date.sh"; } | crontab -
     
